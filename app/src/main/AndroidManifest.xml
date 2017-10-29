@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cxmscb.cxm.processproject">
+
+    <uses-permission android:name="android.permission.SET_PROCESS_FOREGROUND"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:persistent="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".FirstService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":first"/>
+        <service
+
+            android:name=".SecondService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":secon"/>
+        <service
+            android:name=".ThirdService"
+            android:enabled="true"
+            android:exported="true"/>
+        <service android:name=".MyJobDaemonService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+    </application>
+
+</manifest>
